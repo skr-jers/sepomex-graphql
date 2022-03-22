@@ -1,0 +1,20 @@
+schema {
+    query: Query
+}
+
+type Address {
+    code: ZipCode
+    municipality: String
+    state: String
+    township: String
+}
+
+type Query {
+    zipcode(code: String): ZipCode
+    allAddresses(code: String): [ZipCode]
+}
+
+type ZipCode {
+    addresses: [Address!]
+    code: String!
+}
